@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestGolf.unity
-    guid: be2ebc8b254d5a34bb09e59d579c943a
+    path: Assets/Scenes/IceLevel.unity
+    guid: bec5ee377b4f53f45807a7e79dff2ec3
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 54fab7d0fa5c7e348aaa7b615b7da892
+    path: Assets/Scenes/IceLevel1.unity
+    guid: ec73ed5717fe9e5419084f2c39594454
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

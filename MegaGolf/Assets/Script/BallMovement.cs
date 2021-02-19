@@ -13,7 +13,7 @@ public class BallMovement : MonoBehaviour
     private Vector3 startPos, endPos, direction;
     private bool canShoot, shotStarted;
     private int strokes;
-    
+
 
     private void Start()
     {
@@ -21,7 +21,6 @@ public class BallMovement : MonoBehaviour
         canShoot = true;
         myRB.sleepThreshold = minSpeed;
     }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && canShoot)
@@ -31,14 +30,12 @@ public class BallMovement : MonoBehaviour
             myLR.gameObject.SetActive(true);
             myLR.SetPosition(0, myLR.transform.localPosition);
         }
-
         if (Input.GetMouseButton(0) && shotStarted)
         {
             endPos = MousePositionInWorld();
             shotForce = Mathf.Clamp(Vector3.Distance(endPos, startPos), 0, maxForce);
             myLR.SetPosition(1, transform.InverseTransformPoint(endPos));
         }
-
         if (Input.GetMouseButtonUp(0) && shotStarted)
         {
             canShoot = false;
@@ -57,24 +54,20 @@ public class BallMovement : MonoBehaviour
             myRB.AddForce(Vector3.Normalize(direction) * shotForce * shotPower, ForceMode.Impulse);
             startPos = endPos = Vector3.zero;
         }
-
         if (myRB.IsSleeping())
         {
             canShoot = true;
         }
     }
-
     private Vector3 MousePositionInWorld()
     {
         Vector3 position = Vector3.zero;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
-
         if (Physics.Raycast(ray, out hit))
         {
             position = hit.point;
         }
-
         return position;
     }
 }
